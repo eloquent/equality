@@ -15,8 +15,8 @@
         "php": ">=5.3.0"
     },
     "require-dev": {
-        "eloquent/asplode": "*",
-        "phake/phake": "*"
+        "eloquent/asplode": "1.*",
+        "phake/phake": "1.*"
     },
     "autoload": {
         "psr-0": {
