@@ -22,8 +22,8 @@ Equality requires PHP 5.3 or later.
 Sometimes it is necessary to compare two objects to determine whether they are
 considered equal.
 
-If you use `==`, you cannot be strict about equality. For instance, this snippet
-outputs 'equal':
+If the `==` operator is used, there is no strictness about the equality. For
+instance, this snippet outputs 'equal':
 
 ```php
 <?php
@@ -41,8 +41,8 @@ if ($left == $right) {
 }
 ```
 
-Conversely, if you use `===`, objects are not equal unless they are the same
-*instance*. The following snippet outputs 'not equal':
+Conversely, if the `===` operator is used, objects are not equal unless they are
+the same *instance*. The following snippet outputs 'not equal':
 
 ```php
 <?php
@@ -101,13 +101,43 @@ if ($comparator->equals($left, $right)) {
 
 Equality can work with any PHP data type, not just objects.
 
+## Custom equality logic
+
+In some cases it may be desirable to customize how equality is determined.
+The interface `EqualityComparable` can be used to provide a custom equality
+implementation for any class:
+
+```php
+<?php
+
+use Eloquent\Equality\EqualityComparable;
+
+class Foo implements EqualityComparable
+{
+    /**
+     * @param mixed $value
+     *
+     * @return boolean
+     */
+    public function isEqualTo($value)
+    {
+        // custom logic...
+    }
+}
+```
+
+When Equality encounters an object that implements `EqualityComparable`, it will
+return the result of the `isEqualTo()` method instead of using the default
+equality logic.
+
 ## How does Equality work?
 
 Equality uses [reflection](http://php.net/reflection) to recurse over the values
 it is passed and ensure that they are deeply, and strictly, equal.
 
 In addition, it implements special protections to avoid infinite recursion
-issues, such as an object that contains itself.
+issues, such as objects that contain themselves, or objects that contain the
+object that they are being compared to.
 
 ## Code quality
 

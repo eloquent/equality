@@ -11,6 +11,7 @@
 
 namespace Eloquent\Equality;
 
+use Phake;
 use PHPUnit_Framework_TestCase;
 use stdClass;
 
@@ -207,5 +208,29 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
     {
         $this->assertSame($expected, $this->_comparator->equals($left, $right));
         $this->assertSame($expected, $this->_comparator->equals($right, $left));
+    }
+
+    public function testEqualsEqualityComparable()
+    {
+        $equalityComparable = Phake::mock(
+            __NAMESPACE__ . '\EqualityComparable'
+        );
+        Phake::when($equalityComparable)
+            ->isEqualTo(Phake::anyParameters())
+            ->thenReturn(true)
+        ;
+
+        $this->assertTrue($this->_comparator->equals(
+            $equalityComparable,
+            'foo'
+        ));
+        $this->assertTrue($this->_comparator->equals(
+            'bar',
+            $equalityComparable
+        ));
+        Phake::inOrder(
+            Phake::verify($equalityComparable)->isEqualTo('foo'),
+            Phake::verify($equalityComparable)->isEqualTo('bar')
+        );
     }
 }

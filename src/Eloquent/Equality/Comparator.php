@@ -36,6 +36,12 @@ class Comparator
      */
     protected function valueEquals($left, $right)
     {
+        if ($left instanceof EqualityComparable) {
+            return $left->isEqualTo($right);
+        } elseif ($right instanceof EqualityComparable) {
+            return $right->isEqualTo($left);
+        }
+
         switch (gettype($left)) {
             case 'array':
                 return $this->arrayEquals($left, $right);
