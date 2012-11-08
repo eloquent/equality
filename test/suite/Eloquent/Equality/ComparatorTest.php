@@ -160,6 +160,43 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
             false
         );
 
+        $objectA = new stdClass;
+        $objectA->foo = $objectA;
+        $objectB = new stdClass;
+        $objectB->foo = $objectB;
+        $objectC = new stdClass;
+        $objectC->foo = new TestFixture\ChildObject('bar', 0);
+        $objectC->baz = $objectC;
+        $data['Recursive object reference equal'] = array(
+            array('bar', $objectA),
+            array('bar', $objectB),
+            true
+        );
+        $data['Recursive object reference inequal'] = array(
+            array('bar', $objectA),
+            array('bar', $objectC),
+            false
+        );
+
+        $objectA = new stdClass;
+        $objectB = new stdClass;
+        $objectB->foo = $objectA;
+        $objectA->foo = $objectB;
+        $objectC = new stdClass;
+        $objectD = new stdClass;
+        $objectC->foo = $objectD;
+        $objectD->foo = new TestFixture\ChildObject('bar', 0);
+        $data['Recursive object reference equal (cross reference)'] = array(
+            array('bar', $objectA),
+            array('bar', $objectB),
+            true
+        );
+        $data['Recursive object reference inequal (cross reference)'] = array(
+            array('bar', $objectC),
+            array('bar', $objectD),
+            false
+        );
+
         return $data;
     }
 

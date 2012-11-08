@@ -23,6 +23,19 @@ class Comparator
      */
     public function equals($left, $right)
     {
+        $this->objectComparisonStack = array();
+
+        return $this->valueEquals($left, $right);
+    }
+
+    /**
+     * @param mixed $left
+     * @param mixed $right
+     *
+     * @return boolean
+     */
+    protected function valueEquals($left, $right)
+    {
         switch (gettype($left)) {
             case 'array':
                 return $this->arrayEquals($left, $right);
@@ -49,7 +62,7 @@ class Comparator
         }
 
         foreach ($left as $key => $value) {
-            if (!$this->equals($value, $right[$key])) {
+            if (!$this->valueEquals($value, $right[$key])) {
                 return false;
             }
         }
@@ -71,6 +84,12 @@ class Comparator
         if (get_class($left) !== get_class($right)) {
             return false;
         }
+
+        $stackKey = $this->objectComparisonStackKey($left, $right);
+        if (array_key_exists($stackKey, $this->objectComparisonStack)) {
+            return true;
+        }
+        $this->objectComparisonStack[$stackKey] = true;
 
         return $this->arrayEquals(
             $this->objectProperties($left),
@@ -105,4 +124,23 @@ class Comparator
 
         return $properties;
     }
+
+    /**
+     * @param object $left
+     * @param object $right
+     *
+     * @return string
+     */
+    protected function objectComparisonStackKey($left, $right)
+    {
+        $ids = array(
+            spl_object_hash($left),
+            spl_object_hash($right)
+        );
+        sort($ids);
+
+        return implode('.', $ids);
+    }
+
+    private $objectComparisonStack;
 }
