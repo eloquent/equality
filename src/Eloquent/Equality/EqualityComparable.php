@@ -19,8 +19,9 @@ interface EqualityComparable
 {
     /**
      * @param mixed $value
+     * @param Comparator|null $comparator
      *
      * @return boolean
      */
-    public function isEqualTo($value);
+    public function isEqualTo($value, Comparator $comparator = null);
 }

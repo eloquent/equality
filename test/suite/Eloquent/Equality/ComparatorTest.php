@@ -229,8 +229,14 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
             $equalityComparable
         ));
         Phake::inOrder(
-            Phake::verify($equalityComparable)->isEqualTo('foo'),
-            Phake::verify($equalityComparable)->isEqualTo('bar')
+            Phake::verify($equalityComparable)->isEqualTo(
+                'foo',
+                $this->_comparator
+            ),
+            Phake::verify($equalityComparable)->isEqualTo(
+                'bar',
+                $this->_comparator
+            )
         );
     }
 }

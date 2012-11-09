@@ -37,9 +37,9 @@ class Comparator
     protected function valueEquals($left, $right)
     {
         if ($left instanceof EqualityComparable) {
-            return $left->isEqualTo($right);
+            return $left->isEqualTo($right, $this);
         } elseif ($right instanceof EqualityComparable) {
-            return $right->isEqualTo($left);
+            return $right->isEqualTo($left, $this);
         }
 
         switch (gettype($left)) {

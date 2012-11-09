@@ -110,16 +110,18 @@ implementation for any class:
 ```php
 <?php
 
+use Eloquent\Equality\Comparator;
 use Eloquent\Equality\EqualityComparable;
 
 class Foo implements EqualityComparable
 {
     /**
      * @param mixed $value
+     * @param Comparator|null $comparator
      *
      * @return boolean
      */
-    public function isEqualTo($value)
+    public function isEqualTo($value, Comparator $comparator = null)
     {
         // custom logic...
     }
@@ -128,7 +130,7 @@ class Foo implements EqualityComparable
 
 When Equality encounters an object that implements `EqualityComparable`, it will
 return the result of the `isEqualTo()` method instead of using the default
-equality logic.
+equality logic. The comparator itself will be passed as the second parameter.
 
 ## How does Equality work?
 
