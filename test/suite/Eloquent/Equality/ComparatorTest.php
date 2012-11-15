@@ -239,4 +239,23 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
             )
         );
     }
+
+    /**
+     * @group regression
+     * @link https://github.com/eloquent/equality/issues/1
+     */
+    public function testIgnoreStaticProperty()
+    {
+        $left = new TestFixture\ChildObject('foo', 0);
+        $right = new TestFixture\ChildObject('foo', 0);
+        $this->_comparator = Phake::partialMock(
+            __NAMESPACE__.'\Comparator'
+        );
+
+        $this->assertTrue($this->_comparator->equals($left, $right));
+        Phake::verify($this->_comparator, Phake::never())->valueEquals(
+            $this->identicalTo('staticPropertyValue'),
+            $this->identicalTo('staticPropertyValue')
+        );
+    }
 }

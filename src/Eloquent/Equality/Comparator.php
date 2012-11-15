@@ -115,6 +115,10 @@ class Comparator
 
         while ($reflector) {
             foreach ($reflector->getProperties() as $property) {
+                if ($property->isStatic()) {
+                    continue;
+                }
+
                 $key = sprintf(
                     '%s::%s',
                     $property->getDeclaringClass()->getName(),

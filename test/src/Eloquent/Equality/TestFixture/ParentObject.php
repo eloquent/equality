@@ -19,6 +19,7 @@ class ParentObject
         $this->bar = $bar;
     }
 
+    public static $staticProperty = 'staticPropertyValue';
     private $foo;
     private $bar;
 }

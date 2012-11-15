@@ -13,12 +13,10 @@
 
 namespace Eloquent\Equality;
 
-use ReflectionObject;
-
 interface EqualityComparable
 {
     /**
-     * @param mixed $value
+     * @param mixed      $value
      * @param Comparator $comparator
      *
      * @return boolean
