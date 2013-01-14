@@ -34,6 +34,17 @@ class Comparator
      *
      * @return boolean
      */
+    public function __invoke($left, $right)
+    {
+        return $this->equals($left, $right);
+    }
+
+    /**
+     * @param mixed $left
+     * @param mixed $right
+     *
+     * @return boolean
+     */
     protected function valueEquals($left, $right)
     {
         if ($left instanceof EqualityComparable) {
