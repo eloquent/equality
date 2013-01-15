@@ -210,6 +210,17 @@ class ComparatorTest extends PHPUnit_Framework_TestCase
         $this->assertSame($expected, $this->_comparator->equals($right, $left));
     }
 
+    /**
+     * @dataProvider equalsData
+     */
+    public function testInvoke($left, $right, $expected)
+    {
+        $cmp = $this->_comparator;
+
+        $this->assertSame($expected, $cmp($left, $right));
+        $this->assertSame($expected, $cmp($right, $left));
+    }
+
     public function testEqualsEqualityComparable()
     {
         $equalityComparable = Phake::mock(
