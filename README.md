@@ -29,8 +29,6 @@ If the `==` operator is used, there is no strictness about the equality. For
 instance, this snippet outputs 'equal':
 
 ```php
-<?php
-
 $left = new stdClass;
 $left->foo = 0;
 
@@ -48,8 +46,6 @@ Conversely, if the `===` operator is used, objects are not equal unless they are
 the same *instance*. The following snippet outputs 'not equal':
 
 ```php
-<?php
-
 $left = new stdClass;
 $left->foo = 'bar';
 
@@ -68,8 +64,6 @@ without requiring that they be the same instance. This is where Equality comes
 in. This snippet correctly outputs 'equal':
 
 ```php
-<?php
-
 $left = new stdClass;
 $left->foo = 'bar';
 
@@ -91,8 +85,6 @@ Equality is very simple to use. Simply instantiate a Comparator and use its
 `equals()` method:
 
 ```php
-<?php
-
 $comparator = new Eloquent\Equality\Comparator;
 
 if ($comparator->equals($left, $right)) {
