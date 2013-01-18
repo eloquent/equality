@@ -2,6 +2,9 @@
 
 *A better strict comparison for PHP.*
 
+[![Build status](https://secure.travis-ci.org/eloquent/equality.png)](http://travis-ci.org/eloquent/equality)
+[![Test coverage](http://eloquent.github.com/equality/coverage-report/coverage.png)](http://eloquent.github.com/equality/coverage-report/index.html)
+
 ## Installation
 
 Equality requires PHP 5.3 or later.
@@ -140,14 +143,3 @@ it is passed and ensure that they are deeply, and strictly, equal.
 In addition, it implements special protections to avoid infinite recursion
 issues, such as objects that contain themselves, or objects that contain the
 object that they are being compared to.
-
-## Code quality
-
-Equality strives to attain a high level of quality. A full test suite is
-available, and code coverage is closely monitored.
-
-### Latest revision test suite results
-[![Build Status](https://secure.travis-ci.org/eloquent/equality.png)](http://travis-ci.org/eloquent/equality)
-
-### Latest revision test suite coverage
-<http://ci.ezzatron.com/report/equality/coverage/>

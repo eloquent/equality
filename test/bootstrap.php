@@ -1,6 +1,7 @@
 <?php
 
-$autoloader = require __DIR__.'/../vendor/autoload.php';
-$autoloader->add('Eloquent\Equality\TestFixture', __DIR__.'/src');
+use Composer\Autoload\ClassLoader;
 
-Eloquent\Asplode\Asplode::instance()->install();
+$autoloader = new ClassLoader;
+$autoloader->add('Eloquent\Equality\TestFixture', __DIR__.'/src');
+$autoloader->register();

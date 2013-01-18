@@ -1,7 +1,21 @@
 language: php
-before_script:
-    - composer install --dev
-script: phpunit
+
 php:
-    - 5.3
-    - 5.4
+  - 5.3.3
+  - 5.3
+  - 5.4
+  - 5.5
+
+matrix:
+  # Use PHP 5.4 for coverage reporting.
+  include:
+    - php: 5.4
+      env:
+        - secure: "k0ME4UM8+TN7HzlIXJ+eQ8ZXG4WcQoxc6lLHN3OIeqeb6XBNLIuVFsJTv2yi\nCccRirxiDcIg1I98po/zToY0kRV2n1VX/Hn8sRbz0LEA9ryaftmV1dHrhasW\nAF1A72RNO8VftJotEtZLvbUl+OtoE1n2D8YO/zGJ7aLqF0RfEfY="
+
+  # PHP 5.5 is still in alpha, so ignore build failures.
+  allow_failures:
+    - php: 5.5
+
+install: composer install --dev --prefer-source
+script:  ./vendor/bin/travis-build
