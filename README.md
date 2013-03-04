@@ -2,23 +2,13 @@
 
 *A better strict comparison for PHP.*
 
-[![Build status](https://secure.travis-ci.org/eloquent/equality.png)](http://travis-ci.org/eloquent/equality)
-[![Test coverage](http://eloquent.github.com/equality/coverage-report/coverage.png)](http://eloquent.github.com/equality/coverage-report/index.html)
+[![Build Status]](http://travis-ci.org/eloquent/equality)
+[![Test Coverage]](http://eloquent-software.com/equality/artifacts/tests/coverage/)
 
 ## Installation
 
-Equality requires PHP 5.3 or later.
-
-### With [Composer](http://getcomposer.org/)
-
-* Add 'eloquent/equality' to the project's composer.json dependencies
-* Run `composer install`
-
-### Bare installation
-
-* Clone from GitHub: `git clone git://github.com/eloquent/equality.git`
-* Use a [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
-  compatible autoloader (namespace 'Eloquent\Equality' in the 'src' directory)
+Available as [Composer](http://getcomposer.org/) package
+[eloquent/equality](https://packagist.org/packages/eloquent/equality).
 
 ## The problem
 
@@ -103,8 +93,6 @@ The interface `EqualityComparable` can be used to provide a custom equality
 implementation for any class:
 
 ```php
-<?php
-
 use Eloquent\Equality\Comparator;
 use Eloquent\Equality\EqualityComparable;
 
@@ -135,3 +123,7 @@ it is passed and ensure that they are deeply, and strictly, equal.
 In addition, it implements special protections to avoid infinite recursion
 issues, such as objects that contain themselves, or objects that contain the
 object that they are being compared to.
+
+<!-- references -->
+[Build Status]: https://raw.github.com/eloquent/equality/gh-pages/artifacts/images/icecave/regular/build-status.png
+[Test Coverage]: https://raw.github.com/eloquent/equality/gh-pages/artifacts/images/icecave/regular/coverage.png
