@@ -1,0 +1,12 @@
+
+
+Code Coverage Report 
+  2013-03-04 09:39:37
+
+ Summary: 
+  Classes: 100.00% (1/1)
+  Methods: 100.00% (7/7)
+  Lines:   100.00% (57/57)
+
+\Eloquent\Equality::Comparator
+  Methods: 100.00% ( 7/ 7)   Lines: 100.00% ( 57/ 57)
