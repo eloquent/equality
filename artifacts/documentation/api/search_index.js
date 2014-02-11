@@ -1,0 +1,7 @@
+var search_data = {
+    'index': {
+        'searchIndex': ["eloquent","eloquent\\equality","eloquent\\equality\\comparator","eloquent\\equality\\equalitycomparable","eloquent\\equality\\comparator::equals","eloquent\\equality\\comparator::__invoke","eloquent\\equality\\equalitycomparable::isequalto"],
+        'info': [["Eloquent","","Eloquent.html","","",3],["Eloquent\\Equality","","Eloquent\/Equality.html","","",3],["Comparator","Eloquent\\Equality","Eloquent\/Equality\/Comparator.html","","Deeply compares values.",1],["EqualityComparable","Eloquent\\Equality","Eloquent\/Equality\/EqualityComparable.html","","The interface implemented by objects with custom equality",1],["Comparator::equals","Eloquent\\Equality\\Comparator","Eloquent\/Equality\/Comparator.html#method_equals","(mixed $left, mixed $right)","Compare two values.",2],["Comparator::__invoke","Eloquent\\Equality\\Comparator","Eloquent\/Equality\/Comparator.html#method___invoke","(mixed $left, mixed $right)","Compare two values.",2],["EqualityComparable::isEqualTo","Eloquent\\Equality\\EqualityComparable","Eloquent\/Equality\/EqualityComparable.html#method_isEqualTo","(mixed $value, <a href=\"Eloquent\/Equality\/Comparator.html\"><abbr title=\"Eloquent\\Equality\\Comparator\">Comparator<\/abbr><\/a> $comparator)","Returns true if the supplied value is deeply equal",2]]
+    }
+}
+search_data['index']['longSearchIndex'] = search_data['index']['searchIndex']
