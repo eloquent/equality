@@ -2,7 +2,7 @@
 
 *A better strict comparison for PHP.*
 
-[![The most recent stable version is 2.1.1][version-image]][Semantic versioning]
+[![The most recent stable version is 2.1.2][version-image]][Semantic versioning]
 [![Current build status image][build-image]][Current build status]
 [![Current coverage status image][coverage-image]][Current coverage status]
 
@@ -146,4 +146,4 @@ object that they are being compared to.
 [Current coverage status]: https://coveralls.io/r/eloquent/equality
 [eloquent/equality]: https://packagist.org/packages/eloquent/equality
 [Semantic versioning]: http://semver.org/
-[version-image]: http://img.shields.io/:semver-2.1.1-brightgreen.svg "This project uses semantic versioning"
+[version-image]: http://img.shields.io/:semver-2.1.2-brightgreen.svg "This project uses semantic versioning"
