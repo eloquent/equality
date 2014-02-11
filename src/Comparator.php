@@ -3,23 +3,34 @@
 /*
  * This file is part of the Equality package.
  *
- * Copyright © 2013 Erin Millard
+ * Copyright © 2014 Erin Millard
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 namespace Eloquent\Equality;
 
 use ReflectionObject;
 
+/**
+ * Deeply compares values.
+ *
+ * @deprecated Use icecave/parity instead.
+ * @link https://github.com/IcecaveStudios/parity
+ */
 class Comparator
 {
     /**
-     * @param mixed $left
-     * @param mixed $right
+     * Compare two values.
      *
-     * @return boolean
+     * @deprecated Use icecave/parity instead.
+     * @link https://github.com/IcecaveStudios/parity
+     *
+     * @param mixed $left  The left value.
+     * @param mixed $right The right value.
+     *
+     * @return boolean True if the values are deeply equal.
      */
     public function equals($left, $right)
     {
@@ -29,10 +40,15 @@ class Comparator
     }
 
     /**
-     * @param mixed $left
-     * @param mixed $right
+     * Compare two values.
      *
-     * @return boolean
+     * @deprecated Use icecave/parity instead.
+     * @link https://github.com/IcecaveStudios/parity
+     *
+     * @param mixed $left  The left value.
+     * @param mixed $right The right value.
+     *
+     * @return boolean True if the values are deeply equal.
      */
     public function __invoke($left, $right)
     {
@@ -40,10 +56,12 @@ class Comparator
     }
 
     /**
-     * @param mixed $left
-     * @param mixed $right
+     * Compare two values.
      *
-     * @return boolean
+     * @param mixed $left  The left value.
+     * @param mixed $right The right value.
+     *
+     * @return boolean True if the values are deeply equal.
      */
     protected function valueEquals($left, $right)
     {
@@ -64,10 +82,12 @@ class Comparator
     }
 
     /**
-     * @param array $left
-     * @param mixed $right
+     * Compare an array to another arbitrary value.
      *
-     * @return boolean
+     * @param array $left  The left value.
+     * @param mixed $right The right value.
+     *
+     * @return boolean True if the values are deeply equal.
      */
     protected function arrayEquals(array $left, $right)
     {
@@ -88,10 +108,12 @@ class Comparator
     }
 
     /**
-     * @param object $left
-     * @param mixed  $right
+     * Compare an object to another arbitrary value.
      *
-     * @return boolean
+     * @param object $left  The left value.
+     * @param mixed  $right The right value.
+     *
+     * @return boolean True if the values are deeply equal.
      */
     protected function objectEquals($left, $right)
     {
@@ -115,9 +137,12 @@ class Comparator
     }
 
     /**
-     * @param object $object
+     * Get the properties of the supplied object, including protected and
+     * private values.
      *
-     * @return array<string,mixed>
+     * @param object $object The object to inspect.
+     *
+     * @return array<string,mixed> The object's properties.
      */
     protected function objectProperties($object)
     {
@@ -147,10 +172,13 @@ class Comparator
     }
 
     /**
-     * @param object $left
-     * @param object $right
+     * Return a unique key for the current comparison, which can be used to
+     * avoid recursion issues.
      *
-     * @return string
+     * @param object $left  The left value.
+     * @param object $right The right value.
+     *
+     * @return string The unique comparison key.
      */
     protected function objectComparisonStackKey($left, $right)
     {
